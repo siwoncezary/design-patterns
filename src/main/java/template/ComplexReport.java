@@ -1,36 +1,13 @@
 package template;
 
-public class ComplexReport implements ReportTemplate{
-    private String title;
-    private String content;
+public class ComplexReport extends ReportTemplate{
 
-    public ComplexReport(String title, String content) {
-        this.title = title;
-        this.content = content;
+    protected ComplexReport(String header, String title, String content, String footer) {
+        super(header, title, content, footer);
     }
 
     @Override
     public String generate() {
-        return "header" + "\n" + title +"\n" + content +"\n footer";
-    }
-
-    @Override
-    public String header() {
-        return null;
-    }
-
-    @Override
-    public String title() {
-        return null;
-    }
-
-    @Override
-    public String content() {
-        return null;
-    }
-
-    @Override
-    public String footer() {
-        return null;
+        return getHeader() + "\n" + getTitle() +"\n" + getContent() +"\n"+ getFooter();
     }
 }
