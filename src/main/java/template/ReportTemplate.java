@@ -1,33 +1,36 @@
 package template;
 
 abstract public class ReportTemplate {
-    private final String header;
-    private final String title;
-    private final String content;
-    private final String footer;
-
-    protected ReportTemplate(String header, String title, String content, String footer) {
-        this.header = header;
-        this.title = title;
-        this.content = content;
-        this.footer = footer;
+    /**
+     * <p>
+     * Klasa z metodą szablonowa generująca raport składający się z elementów zwracanych przez metody abstrakcyjne.
+     * Algorytm generowania jest stały, ale w klasach potomnych można definiować
+     * metody wywoływane w szablonie, tym samym modyfikując postać raportu.
+     * </p>
+     * @return łańcuch z raportem
+     */
+    public String generate() {
+        StringBuilder report = new StringBuilder();
+        if (getHeader() != null) {
+            report.append(getHeader()).append("\n");
+        }
+        if (getTitle() != null) {
+            report.append(getTitle()).append("\n");
+        }
+        if (getContent() != null) {
+            report.append(getContent()).append("\n");
+        }
+        if (getFooter() != null) {
+            report.append(getFooter()).append("\n");
+        }
+        return report.toString();
     }
 
-    abstract String generate();
+    public abstract String getHeader();
 
-    public String getHeader() {
-        return header;
-    }
+    public abstract String getTitle();
 
-    public String getTitle() {
-        return title;
-    }
+    public abstract String getContent();
 
-    public String getContent() {
-        return content;
-    }
-
-    public String getFooter() {
-        return footer;
-    }
+    public abstract String getFooter();
 }
