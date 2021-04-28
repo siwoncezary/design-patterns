@@ -1,14 +1,14 @@
 package template;
-
+/**
+ * <p>
+ * Klasa z metodą szablonowa generująca raport składający się z elementów zwracanych przez metody abstrakcyjne.
+ * Algorytm generowania jest stały, ale w klasach potomnych można definiować
+ * metody wywoływane w szablonie, tym samym modyfikując postać raportu.
+ * </p>
+ * @return łańcuch z raportem
+ */
 abstract public class ReportTemplate {
-    /**
-     * <p>
-     * Klasa z metodą szablonowa generująca raport składający się z elementów zwracanych przez metody abstrakcyjne.
-     * Algorytm generowania jest stały, ale w klasach potomnych można definiować
-     * metody wywoływane w szablonie, tym samym modyfikując postać raportu.
-     * </p>
-     * @return łańcuch z raportem
-     */
+
     public String generate() {
         StringBuilder report = new StringBuilder();
         if (getHeader() != null) {
